@@ -18,22 +18,6 @@ export default function Products(){
         if(error){
             return <Error title="Failed to load" message={error}/>
         }
-    //const [loadedProducts, setLoadedProducts] = useState([]);
-
-    /*useEffect(() => {
-        async function fetchProducts(){
-            const response = await fetch('http://localhost:3000/meals');
-    
-            if(!response.ok){
-    
-            }
-    
-            const products = await response.json();
-            setLoadedProducts(products);
-        }
-        fetchProducts();
-    }, []);*/
-    
 
     return (
         <ul id="meals">

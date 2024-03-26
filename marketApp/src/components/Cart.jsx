@@ -34,7 +34,7 @@ export default function Cart(){
                     onIncrease={() => cartCtx.addItem(item)} />
                 ))}
             </ul>
-            <p className="cart-total">{cartTotal}</p>
+            <p className="cart-total">{`$${cartTotal}`}</p>
             <p className="modal-actions">
                 <Button textOnly onClick={handleCloseCart}>Close</Button>
                 {cartCtx.items.length > 0 ? (

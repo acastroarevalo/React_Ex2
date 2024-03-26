@@ -16,6 +16,10 @@ export default function Header() {
         userProgressCtx.showCart();
     }
 
+    function handleShowWishlist(){
+        userProgressCtx.showWishlist();
+    }
+
     return (
         <header id="main-header">
             <div id="title">
@@ -23,6 +27,15 @@ export default function Header() {
                 <h1>MarketApp</h1>
             </div>
             <nav>
+                <Button textOnly onClick={handleShowCart}>
+                    User
+                </Button>
+                <Button textOnly onClick={handleShowCart}>
+                    Orders
+                </Button>
+                <Button textOnly onClick={handleShowWishlist}>
+                    Wishlist
+                </Button>
                 <Button textOnly onClick={handleShowCart}>
                     Cart ({totalCartItems})
                 </Button>
