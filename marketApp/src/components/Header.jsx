@@ -20,6 +20,10 @@ export default function Header() {
         userProgressCtx.showWishlist();
     }
 
+    function handleShowOrders(){
+        userProgressCtx.showOrders();
+    }
+
     return (
         <header id="main-header">
             <div id="title">
@@ -30,7 +34,7 @@ export default function Header() {
                 <Button textOnly onClick={handleShowCart}>
                     User
                 </Button>
-                <Button textOnly onClick={handleShowCart}>
+                <Button textOnly onClick={handleShowOrders}>
                     Orders
                 </Button>
                 <Button textOnly onClick={handleShowWishlist}>

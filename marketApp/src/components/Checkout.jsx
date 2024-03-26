@@ -6,6 +6,7 @@ import Button from "./UI/Button";
 import UserProgressContext from "../store/UserProgressContext";
 import useHttp from "../hooks/useHttp";
 import Error from "./Error";
+import OrdersContext from "../store/OrderHistoryContext";
 
 const requestConfig = {
     method: 'POST',
@@ -17,6 +18,7 @@ const requestConfig = {
 export default function Checkout() {
     const cartCtx = useContext(CartContext);
     const userProgressCtx = useContext(UserProgressContext);
+    const ordersCtx = useContext(OrdersContext);
 
     const {
         data,
@@ -50,19 +52,7 @@ export default function Checkout() {
                 }
             })
         );
-        
-        /*fetch('http://localhost:3000/orders', {
-            method: 'POST',
-            headers: {
-                'Content-type': 'application/json'
-            },
-            body: JSON.stringify({
-                order: {
-                    items: cartCtx.items,
-                    customer: customerData
-                }
-            })
-        });*/
+        ordersCtx.addItem(cartCtx.items)
     }
     
     let actions = (

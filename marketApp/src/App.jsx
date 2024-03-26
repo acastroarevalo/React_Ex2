@@ -6,17 +6,22 @@ import Cart from "./components/Cart";
 import Checkout from "./components/Checkout";
 import Wishlist from "./components/Wishlist";
 import { WishlistContextProvider } from "./store/WishlistContext";
+import OrderHistory from "./components/OrderHistory";
+import { OrdersContextProvider } from "./store/OrderHistoryContext";
 
 function App() {
   return (
     <UserProgressContextProvider>
       <WishlistContextProvider>
       <CartContextProvider>
+      <OrdersContextProvider>
         <Header/>
         <Products/>
         <Cart/>
         <Checkout/>
         <Wishlist/>
+        <OrderHistory/>
+        </OrdersContextProvider>
       </CartContextProvider>
       </WishlistContextProvider>
     </UserProgressContextProvider>

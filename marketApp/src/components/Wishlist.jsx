@@ -15,6 +15,10 @@ export default function Wishlist(){
         userProgressCtx.hideWishlist();
     }
 
+    function handleClearWishlist(){
+        wishCtx.clearWishlist();
+    }
+
     return(
         <Modal className="cart" 
           open={userProgressCtx.progress === 'wishlist'} 
@@ -32,9 +36,9 @@ export default function Wishlist(){
             </ul>
             <p className="modal-actions">
                 <Button textOnly onClick={handleCloseWishlist}>Close</Button>
-                {/*{wishCtx.items.length > 0 ? (
-                    <Button onClick={handleGoToCheckout}>Go to Checkout</Button>
-                ) : null }*/}
+                {wishCtx.items.length > 0 ? (
+                    <Button onClick={handleClearWishlist}>Clear Wishlist</Button>
+                ) : null }
             </p>
 
         </Modal>
