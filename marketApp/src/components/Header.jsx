@@ -3,10 +3,12 @@ import logoImg from '../assets/logo.jpg'
 import Button from './UI/Button';
 import CartContext from '../store/CartContext';
 import UserProgressContext from '../store/UserProgressContext';
+import LoginStateContext from '../store/LoginStateContext';
 
 export default function Header() {
     const cartCtx = useContext(CartContext);
     const userProgressCtx = useContext(UserProgressContext);
+    const loginStateCtx = useContext(LoginStateContext);
 
     const totalCartItems = cartCtx.items.reduce((totalNumberOfItems, item) => {
         return totalNumberOfItems + item.quantity;
@@ -27,6 +29,11 @@ export default function Header() {
     function handleShowUser(){
         userProgressCtx.showUser();
     }
+
+    function handleLogin(){
+        userProgressCtx.showLogin();
+    }
+
     return (
         <header id="main-header">
             <div id="title">
@@ -34,8 +41,8 @@ export default function Header() {
                 <h1>MarketApp</h1>
             </div>
             <nav>
-                <Button textOnly onClick={handleShowUser}>
-                    User
+                <Button textOnly onClick={() => loginStateCtx.loginStatus === '' ? handleLogin() : handleShowUser()}>
+                    {loginStateCtx.loginStatus === '' ? 'Login' : 'User'}
                 </Button>
                 <Button textOnly onClick={handleShowOrders}>
                     Orders

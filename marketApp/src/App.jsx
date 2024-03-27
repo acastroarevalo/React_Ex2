@@ -9,10 +9,15 @@ import { WishlistContextProvider } from "./store/WishlistContext";
 import OrderHistory from "./components/OrderHistory";
 import { OrdersContextProvider } from "./store/OrderHistoryContext";
 import User from "./components/User";
+import { LoginStateContextProvider } from "./store/LoginStateContext";
+import { UserContextProvider } from "./store/UserContext";
+import Login from "./components/Login";
 
 function App() {
   return (
+    <LoginStateContextProvider>
     <UserProgressContextProvider>
+      <UserContextProvider>
       <WishlistContextProvider>
       <CartContextProvider>
       <OrdersContextProvider>
@@ -23,10 +28,13 @@ function App() {
         <Wishlist/>
         <OrderHistory/>
         <User/>
-        </OrdersContextProvider>
+        <Login/>
+      </OrdersContextProvider>
       </CartContextProvider>
       </WishlistContextProvider>
+      </UserContextProvider>
     </UserProgressContextProvider>
+    </LoginStateContextProvider>
   );
 }
 

@@ -7,6 +7,7 @@ const UserProgressContext = createContext({
     showWishlist: () => {},
     showOrders: () => {},
     showUser: () => {},
+    showLogin: () => {},
     hide: () => {}
 });
 
@@ -32,6 +33,10 @@ export function UserProgressContextProvider({children}){
     function showUser(){
         setUserProgress('user');
     }
+
+    function showLogin(){
+        setUserProgress('login');
+    }
     
     function hide(){
         setUserProgress('');
@@ -44,8 +49,10 @@ export function UserProgressContextProvider({children}){
         showWishlist,
         showOrders,
         showUser,
+        showLogin,
         hide
     };
+    
     return(
         <UserProgressContext.Provider value={userProgressCtx}>{children}</UserProgressContext.Provider>
     );
