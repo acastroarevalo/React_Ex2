@@ -4,6 +4,7 @@ import Button from './UI/Button';
 import CartContext from '../store/CartContext';
 import UserProgressContext from '../store/UserProgressContext';
 import LoginStateContext from '../store/LoginStateContext';
+import SearchBar from './UI/SearchBar';
 
 export default function Header() {
     const cartCtx = useContext(CartContext);
@@ -53,6 +54,7 @@ export default function Header() {
                 <Button textOnly onClick={handleShowCart}>
                     Cart ({totalCartItems})
                 </Button>
+                <SearchBar/>
             </nav>
         </header>
     );
