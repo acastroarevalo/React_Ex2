@@ -3,7 +3,8 @@ import { createContext, useState } from "react";
 const LoginStateContext = createContext({
     loginStatus: '',
     login: () => {},
-    logout: () => {}
+    logout: () => {},
+    edit: () => {}
 });
 
 export function LoginStateContextProvider({children}){
@@ -11,18 +12,21 @@ export function LoginStateContextProvider({children}){
 
     function login(){
         setLoginState('loggedIn');
-        alert('Logging In')
     }
 
     function logout(){
         setLoginState('');
-        alert('Logging Out')
+    }
+
+    function edit(){
+        setLoginState('edit');
     }
 
     const loginStateCtx = {
         loginStatus: loginState,
         login,
-        logout
+        logout,
+        edit
     }
 
     return(
