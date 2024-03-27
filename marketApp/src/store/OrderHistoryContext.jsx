@@ -8,7 +8,7 @@ const OrdersContext = createContext({
 function ordersReducer(state, action){
     if(action.type === 'ADD_ITEM'){
         const updatedItems = [...state.items];
-        updatedItems.push({...action.item});
+        updatedItems.push([...action.item]);
 
         return {...state, items: updatedItems};
     }

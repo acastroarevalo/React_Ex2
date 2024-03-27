@@ -24,6 +24,9 @@ export default function Header() {
         userProgressCtx.showOrders();
     }
 
+    function handleShowUser(){
+        userProgressCtx.showUser();
+    }
     return (
         <header id="main-header">
             <div id="title">
@@ -31,7 +34,7 @@ export default function Header() {
                 <h1>MarketApp</h1>
             </div>
             <nav>
-                <Button textOnly onClick={handleShowCart}>
+                <Button textOnly onClick={handleShowUser}>
                     User
                 </Button>
                 <Button textOnly onClick={handleShowOrders}>

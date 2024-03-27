@@ -12,7 +12,7 @@ export default function Wishlist(){
     const userProgressCtx = useContext(UserProgressContext);
 
     function handleCloseWishlist(){
-        userProgressCtx.hideWishlist();
+        userProgressCtx.hide();
     }
 
     function handleClearWishlist(){

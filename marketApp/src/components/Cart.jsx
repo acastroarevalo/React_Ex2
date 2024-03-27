@@ -12,7 +12,7 @@ export default function Cart(){
     const cartTotal = cartCtx.items.reduce((totalPrice, item) => totalPrice + (item.quantity * item.price), 0);
 
     function handleCloseCart(){
-        userProgressCtx.hideCart();
+        userProgressCtx.hide();
     }
 
     function handleGoToCheckout(){

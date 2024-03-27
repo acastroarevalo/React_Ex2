@@ -10,7 +10,7 @@ export default function OrderHistory(){
     const userProgressCtx = useContext(UserProgressContext);
 
     function handleCloseOrders(){
-        userProgressCtx.hideOrders();
+        userProgressCtx.hide();
     }
 
     return(
@@ -18,12 +18,12 @@ export default function OrderHistory(){
         open={userProgressCtx.progress === 'orders'} 
         onClose={userProgressCtx.progress === 'orders' ? handleCloseOrders : null}>
             <h2>Order History</h2>
-            <ul>
+            <ol>
                 {ordersCtx.items.map((item) => (
-                    <OrderHistoryItem 
-                    key={item.id} 
-                    name={item.name}/>))}
-            </ul>
+                    <OrderHistoryItem
+                        order={item}/>)
+                    )}
+            </ol>
             <p className="modal-actions">
                 <Button textOnly onClick={handleCloseOrders}>Close</Button>
             </p>

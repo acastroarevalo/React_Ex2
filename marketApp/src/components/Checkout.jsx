@@ -31,11 +31,11 @@ export default function Checkout() {
     const cartTotal = cartCtx.items.reduce((totalPrice, item) => totalPrice + (item.quantity * item.price), 0);
 
     function handleClose(){
-        userProgressCtx.hideCheckout();
+        userProgressCtx.hide();
     }
 
     function handleFinish(){
-        userProgressCtx.hideCheckout();
+        userProgressCtx.hide();
         cartCtx.clearCart();
         clearData();
     }
