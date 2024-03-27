@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import UserProgressContext from "../store/UserProgressContext";
 import Modal from "./UI/Modal";
 import Button from "./UI/Button";

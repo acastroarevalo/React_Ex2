@@ -1,4 +1,4 @@
-import {createContext, useReducer} from 'react'
+import {createContext, useEffect, useReducer} from 'react'
 
 const OrdersContext = createContext({
     items: [],
@@ -16,8 +16,14 @@ function ordersReducer(state, action){
     return state;
 }
 
+const initialOrders = JSON.parse(localStorage.getItem('orders')) || {items:[]};
+
 export function OrdersContextProvider({children}){
-    const [orders, dispatchOrdersAction] = useReducer(ordersReducer, {items: []});
+    const [orders, dispatchOrdersAction] = useReducer(ordersReducer, initialOrders);
+
+    useEffect(()=>{
+        localStorage.setItem('orders', JSON.stringify(orders));
+    }, [orders])
 
     function addItem(item) {
         dispatchOrdersAction({type: 'ADD_ITEM', item})

@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import Button from './UI/Button';
 import CartContext from '../store/CartContext';
 import WishlistContext from '../store/WishlistContext';
@@ -9,6 +9,7 @@ export default function ProductItem({product}){
 
     function handleAddProductToCart(){
         cartCtx.addItem(product);
+        
     }
 
     function handleAddProductToWishlist(){

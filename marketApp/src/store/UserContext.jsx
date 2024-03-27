@@ -1,4 +1,4 @@
-import { createContext, useReducer } from "react";
+import { createContext, useEffect, useReducer } from "react";
 
 const UserContext = createContext({
     user: {},
@@ -20,8 +20,14 @@ function userReducer(state, action){
     return state;
 }
 
+const initialUser = JSON.parse(localStorage.getItem('user')) || {user:{}};
+
 export function UserContextProvider({children}){
-    const[user, dispatchUserAction] = useReducer(userReducer, {user: {}});
+    const[user, dispatchUserAction] = useReducer(userReducer, initialUser);
+
+    useEffect(()=>{
+        localStorage.setItem('user', JSON.stringify(user));
+    }, [user])
 
     function updateUser(user){
         dispatchUserAction({type: 'UPDATE_USER', user})

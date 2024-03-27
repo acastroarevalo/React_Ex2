@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 
 const LoginStateContext = createContext({
     loginStatus: '',
@@ -7,8 +7,14 @@ const LoginStateContext = createContext({
     edit: () => {}
 });
 
+const initialLoginState = JSON.parse(localStorage.getItem('loginState')) || '';
+
 export function LoginStateContextProvider({children}){
-    const [loginState, setLoginState] = useState('');
+    const [loginState, setLoginState] = useState(initialLoginState);
+
+    useEffect(()=>{
+        localStorage.setItem('loginState', JSON.stringify(loginState));
+    }, [loginState])
 
     function login(){
         setLoginState('loggedIn');
